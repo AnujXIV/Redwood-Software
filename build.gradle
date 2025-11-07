@@ -1,0 +1,65 @@
+/*
+ * (C) Copyright 2019-2025 Redwood Technology B.V., Houten, The Netherlands
+ */
+
+// This file configures the build for your project, including plugins and dependencies.
+plugins {
+    // Apply the Spring Boot and Java plugins.
+    id("java")
+    id("org.springframework.boot") version "3.3.1"
+    id("io.spring.dependency-management") version "1.1.5"
+}
+
+group = "com.redwood.example.ratelimiter"
+version = "1.0.0"
+
+// Set the Java version to be used.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// Define where Gradle should look for dependencies.
+repositories {
+    mavenCentral()
+}
+
+// Declare the project's dependencies.
+dependencies {
+    // The web starter for building RESTful applications.
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    
+    // The test starter for running tests.
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito:mockito-core:5.2.0")
+
+    // USed for non-spring junit tests
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+test {
+    useJUnitPlatform()
+
+    // ✅ Run tests sequentially to avoid Windows deadlock in parallel forks
+    maxParallelForks = 1
+    forkEvery = 0
+
+    // ✅ Disable Gradle test daemon reuse — avoids hanging Gradle Test Executor
+    jvmArgs '-Xmx512m', '-Xms256m'
+
+    // ✅ Force immediate console output (no buffering)
+    testLogging {
+        events "passed", "failed", "skipped", "standard_out", "standard_error"
+        exceptionFormat "full"
+        showStandardStreams = true
+    }
+
+}
+
+task srcZip(type: Zip) {    
+    from projectDir
+    include 'src/**/*', '*.md', 'build.gradle', 'settings.gradle'
+    exclude '.gradle/', 'gradle', '.vscode/', '.java-version', '.gitignore'    
+    println('Zip file created in build/distributions/...')
+}

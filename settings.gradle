@@ -1,0 +1,9 @@
+/*
+ * (C) Copyright 2019-2025 Redwood Technology B.V., Houten, The Netherlands
+ */
+
+// settings.gradle
+
+// This file is used for multi-project builds.
+// For a single project, it just defines the project's root name.
+rootProject.name = "rate-limiter"

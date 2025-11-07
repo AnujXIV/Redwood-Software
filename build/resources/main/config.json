@@ -1,0 +1,19 @@
+{
+    "limits": [
+        {
+            "endpoint": "*",
+            "refill-rate": 10,
+            "bucket-size": 10
+        },
+        {
+            "endpoint": "/api/v1/users",
+            "refill-rate": 1,
+            "bucket-size": 3
+        },
+        {
+            "endpoint": "/api/v2/logs",
+            "refill-rate": 2,
+            "bucket-size": 6
+        }
+    ]
+}    

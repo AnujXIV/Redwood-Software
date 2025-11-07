@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-11-07T10:17:47" hostname="ANUJ" time="0.01">
+  <properties/>
+  <testcase name="multiplePermitRequestBehavior()" classname="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" time="0.003"/>
+  <testcase name="refillsGraduallyOverTime()" classname="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" time="0.0"/>
+  <testcase name="startsFull_andNeverNegative()" classname="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" time="0.003"/>
+  <testcase name="doesNotExceedCapacityOnLongIdlePeriod()" classname="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" time="0.001"/>
+  <testcase name="refillIsLinearWithTime()" classname="com.redwood.example.ratelimiter.ratelimit.LocalTokenBucketRateLimiterTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
